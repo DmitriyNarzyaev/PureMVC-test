@@ -8,11 +8,13 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
+  plugins: [
+    new BrowserSyncPlugin({
+      host: "localhost",
+      port: 3000,
+      server: {
+        baseDir: ['./']
+      }
+    })
+  ]
 };
-
-module.exports.plugins = [];
-let params = {};
-  params["host"] = "localhost";
-  params["port"] = 3000;
-  params["server"] = {baseDir: ['./']};
-  module.exports.plugins.push(new BrowserSyncPlugin(params));
