@@ -16,6 +16,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    library: "home"
   },
   plugins: [
     new BrowserSyncPlugin({
@@ -25,5 +26,8 @@ module.exports = {
         baseDir: ['./']
       }
     })
-  ]
+  ],
+  resolve: {
+    extensions: [".ts", ".js"],
+  },
 };
