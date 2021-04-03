@@ -1,4 +1,5 @@
 import * as PIXI from 'pixi.js';
+import CircleViewMediator from './mvc/view/CircleViewMediator';
 // import { Graphics } from '@pixi/graphics';
 // import MyFacade from './MyFacade';
 // import SomeClass from './SomeClass';
@@ -15,8 +16,9 @@ import * as controller from './StartupCommand';
 
 // let myGraphics:PIXI.Graphics = new PIXI.Graphics;
 // console.log(myGraphics);
-
 export class Main {
+    private _app:PIXI.Application;
+
     constructor() {
         console.log("Main!!!");
         let facade = MyFacade.getInstance();
@@ -24,13 +26,15 @@ export class Main {
         facade.sendNotification(MyFacade.STARTUP_NOTIFICATION_NAME);
 
         this.initPixi();
+        facade.registerMediator(new CircleViewMediator);
+        let circle:CircleViewMediator = facade.retrieveMediator(CircleViewMediator.NAME);
+        this._app.stage.addChild(circle.getViewComponent());
     }
 
     private initPixi():void {
-        const app = new PIXI.Application({
+        this._app = new PIXI.Application({
             width: 800, height: 600, backgroundColor: 0x1099bb, resolution: window.devicePixelRatio || 1,
         });
-        document.body.appendChild(app.view);
+        document.body.appendChild(this._app.view);
     }
 }
-
