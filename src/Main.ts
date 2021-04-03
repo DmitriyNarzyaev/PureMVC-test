@@ -22,8 +22,6 @@ export class Main {
     constructor() {
         console.log("Main!!!");
         let facade = MyFacade.getInstance();
-        facade.initializeController();
-        facade.initializeView();
         facade.sendNotification(MyFacade.STARTUP_NOTIFICATION_NAME);
 
         this.initPixi();
