@@ -23,10 +23,10 @@ export class Main {
         console.log("Main!!!");
         let facade = MyFacade.getInstance();
         facade.initializeController();
+        facade.initializeView();
         facade.sendNotification(MyFacade.STARTUP_NOTIFICATION_NAME);
 
         this.initPixi();
-        facade.registerMediator(new CircleViewMediator);
         let circle:CircleViewMediator = facade.retrieveMediator(CircleViewMediator.NAME);
         this._app.stage.addChild(circle.getViewComponent());
     }

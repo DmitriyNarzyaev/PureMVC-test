@@ -1,4 +1,5 @@
 import { Facade } from "./com/koreez/puremvc/Facade";
+import CircleViewMediator from "./mvc/view/CircleViewMediator";
 import { startupCommand } from "./StartupCommand";
 
 export default class MyFacade extends Facade {
@@ -10,6 +11,11 @@ export default class MyFacade extends Facade {
             MyFacade.instance = new MyFacade("MyFacade");
         }
         return MyFacade.instance;
+    }
+
+    public initializeView():void {
+        super.initializeView();
+        this.registerMediator(new CircleViewMediator);
     }
 
     public initializeController():void {
