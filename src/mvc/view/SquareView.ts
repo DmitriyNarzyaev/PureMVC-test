@@ -1,4 +1,5 @@
 import * as PIXI from 'pixi.js';
+import Utils from '../../Utils';
 
 export default class CircleView extends PIXI.Graphics{
     constructor(){
@@ -12,7 +13,11 @@ export default class CircleView extends PIXI.Graphics{
     }
 
     public recolor():void {
-        let randomcolor:number = Math.floor(Math.random()*16777215);
+        let r:number = 0;
+        let g:number = Math.floor(Math.random()*256);
+        let b:number = 0;
+
+        let randomcolor:number = Math.floor(Utils.rgbToHex(r, g, b));
         this.clear();
         this.beginFill(randomcolor);
         this.drawRect(0, 0, 25, 25);
