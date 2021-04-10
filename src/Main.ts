@@ -1,4 +1,5 @@
 import * as PIXI from 'pixi.js';
+import CircleView from './mvc/view/CircleView';
 import CircleViewMediator from './mvc/view/CircleViewMediator';
 import SquareViewMediator from './mvc/view/SquareViewMediator';
 // import { Graphics } from '@pixi/graphics';
@@ -19,6 +20,8 @@ import * as controller from './StartupCommand';
 // console.log(myGraphics);
 export class Main {
     private _app:PIXI.Application;
+    private static readonly WIDTH:number = 800;
+    private static readonly HEIGHT:number = 600;
 
     constructor() {
         console.log("Main!!!");
@@ -31,7 +34,10 @@ export class Main {
 
         this.initPixi();
         let circle:CircleViewMediator = facade.retrieveMediator(CircleViewMediator.NAME);
-        this._app.stage.addChild(circle.getViewComponent());
+        let circleComponent:CircleView = circle.getViewComponent();
+        this._app.stage.addChild(circleComponent);
+        circleComponent.x = Math.round(Main.WIDTH/2);
+        circleComponent.y = Math.round(Main.HEIGHT/2);
 
         let square:SquareViewMediator = facade.retrieveMediator(SquareViewMediator.NAME);
         this._app.stage.addChild(square.getViewComponent());
@@ -39,7 +45,10 @@ export class Main {
 
     private initPixi():void {
         this._app = new PIXI.Application({
-            width: 800, height: 600, backgroundColor: 0x1099bb, resolution: window.devicePixelRatio || 1,
+            width: Main.WIDTH,
+            height: Main.HEIGHT,
+            backgroundColor: 0x1099bb,
+            resolution: window.devicePixelRatio || 1,
         });
         document.body.appendChild(this._app.view);
     }
