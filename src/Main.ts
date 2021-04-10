@@ -23,7 +23,10 @@ export class Main {
         console.log("Main!!!");
         let facade = MyFacade.getInstance();
         facade.sendNotification(MyFacade.STARTUP_NOTIFICATION_NAME);
-        facade.sendNotification(MyFacade.TEST_RECOLOR_NOTIFICATION_NAME);
+
+        setInterval(() => {
+            facade.sendNotification(MyFacade.TEST_RECOLOR_NOTIFICATION_NAME);
+        }, 1000);
 
         this.initPixi();
         let circle:CircleViewMediator = facade.retrieveMediator(CircleViewMediator.NAME);
