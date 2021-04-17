@@ -27,21 +27,17 @@ export class Main {
         let squareMediator:SquareViewMediator = facade.retrieveMediator(SquareViewMediator.NAME);
         shapesContainer.addChild(squareMediator.getViewComponent());
 
-        let circleMediator:CircleViewMediator = facade.retrieveMediator("circle1");
+        let circleMediator:CircleViewMediator = facade.retrieveMediator(MyFacade.CIRCLE_1_MEDIATOR_NAME);
         let circleView:CircleView = circleMediator.getViewComponent();
         shapesContainer.addChild(circleView);
         circleView.x = squareMediator.getViewComponent().width + circleView.width/2;
         circleView.y = circleView.height/2;
 
-
-
-        let circleMediator2:CircleViewMediator = facade.retrieveMediator("circle2");
+        let circleMediator2:CircleViewMediator = facade.retrieveMediator(MyFacade.CIRCLE_2_MEDIATOR_NAME);
         let circleView2:CircleView = circleMediator2.getViewComponent();
         shapesContainer.addChild(circleView2);
         circleView2.x = circleView.x + circleView.width;
         circleView2.y = circleView.y;
-
-
 
         let polygonMediator:SquareViewMediator = facade.retrieveMediator(PolygonViewMediator.NAME);
         shapesContainer.addChild(polygonMediator.getViewComponent());
