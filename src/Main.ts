@@ -1,6 +1,8 @@
 import * as PIXI from 'pixi.js';
 import CircleView from './mvc/view/CircleView';
+import CircleView2 from './mvc/view/CircleView2';
 import CircleViewMediator from './mvc/view/CircleViewMediator';
+import PolygonViewMediator from './mvc/view/PolygonViewMediator';
 import SquareViewMediator from './mvc/view/SquareViewMediator';
 import MyFacade from "./MyFacade";
 
@@ -12,21 +14,41 @@ export class Main {
     constructor() {
         let facade = MyFacade.getInstance();
         facade.sendNotification(MyFacade.STARTUP_NOTIFICATION_NAME);        //test
-        this.initPixi();        //TODO: перенести в startupCommand
+        this.initPixi();
 
         setInterval(() => {
             facade.sendNotification(MyFacade.TEST_RECOLOR_NOTIFICATION_NAME);
         }, 1000);
 
         //TODO: создать основной контейнер (root)
-        let circleMediator:CircleViewMediator = facade.retrieveMediator(CircleViewMediator.NAME);
-        let circleView:CircleView = circleMediator.getViewComponent();
-        this._app.stage.addChild(circleView);
-        circleView.x = Math.round(Main.WIDTH/2);
-        circleView.y = Math.round(Main.HEIGHT/2);
+        let shapesContainer:PIXI.Container = new PIXI.Container;
+        this._app.stage.addChild(shapesContainer);
 
         let squareMediator:SquareViewMediator = facade.retrieveMediator(SquareViewMediator.NAME);
-        this._app.stage.addChild(squareMediator.getViewComponent());
+        shapesContainer.addChild(squareMediator.getViewComponent());
+
+        let circleMediator:CircleViewMediator = facade.retrieveMediator(CircleViewMediator.NAME);
+        let circleView:CircleView = circleMediator.getViewComponent();
+        shapesContainer.addChild(circleView);
+        circleView.x = squareMediator.getViewComponent().width + circleView.width/2;
+        circleView.y = circleView.height/2;
+
+
+
+        // let circleMediator2:CircleViewMediator = facade.retrieveMediator(CircleViewMediator.NAME);
+        // let circleView2:CircleView2 = circleMediator2.getViewComponent();
+        // shapesContainer.addChild(circleView2);
+        // circleView2.x = circleView.width + circleView.width/2;
+        // circleView2.y = 100;
+
+
+
+        let polygonMediator:SquareViewMediator = facade.retrieveMediator(PolygonViewMediator.NAME);
+        shapesContainer.addChild(polygonMediator.getViewComponent());
+        polygonMediator.getViewComponent().x = circleView.x + circleView.width/2;
+
+        shapesContainer.x = Math.round(Main.WIDTH - shapesContainer.width)/2;
+        shapesContainer.y = Math.round(Main.HEIGHT - shapesContainer.height)/2;
     }
 
     private initPixi():void {           //TODO: перенести в startupCommand

@@ -20,7 +20,7 @@ export default class SquareView extends PIXI.Graphics{
         let randomcolor:number = Math.floor(Utils.rgbToHex(r, g, b));
         this.clear();
         this.beginFill(randomcolor);
-        this.drawRect(0, 0, 25, 25);
+        this.drawRect(0, 0, 100, 100);
     }
 
     private testHandler(e:KeyboardEvent):void {
