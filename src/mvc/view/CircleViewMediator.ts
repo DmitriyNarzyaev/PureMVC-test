@@ -3,10 +3,9 @@ import MyFacade from "../../MyFacade";
 import CircleView from "./CircleView";
 
 export default class CircleViewMediator extends Mediator<CircleView> {
-    public static NAME = "CircleViewMediator";
 
-    constructor() {
-        super(CircleViewMediator.NAME, new CircleView);
+    constructor(name:string) {
+        super(name, new CircleView);
         this.subscribeNotification([MyFacade.TEST_RECOLOR_NOTIFICATION_NAME]);
     }
 

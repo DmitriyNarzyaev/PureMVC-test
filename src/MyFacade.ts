@@ -18,7 +18,8 @@ export default class MyFacade extends Facade {
 
     public initializeView():void {
         super.initializeView();
-        this.registerMediator(new CircleViewMediator);
+        this.registerMediator(new CircleViewMediator("circle1"));
+        this.registerMediator(new CircleViewMediator("circle2"));
         this.registerMediator(new SquareViewMediator);
         this.registerMediator(new PolygonViewMediator);
     }

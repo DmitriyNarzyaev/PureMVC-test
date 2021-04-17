@@ -27,7 +27,7 @@ export class Main {
         let squareMediator:SquareViewMediator = facade.retrieveMediator(SquareViewMediator.NAME);
         shapesContainer.addChild(squareMediator.getViewComponent());
 
-        let circleMediator:CircleViewMediator = facade.retrieveMediator(CircleViewMediator.NAME);
+        let circleMediator:CircleViewMediator = facade.retrieveMediator("circle1");
         let circleView:CircleView = circleMediator.getViewComponent();
         shapesContainer.addChild(circleView);
         circleView.x = squareMediator.getViewComponent().width + circleView.width/2;
@@ -35,17 +35,17 @@ export class Main {
 
 
 
-        // let circleMediator2:CircleViewMediator = facade.retrieveMediator(CircleViewMediator.NAME);
-        // let circleView2:CircleView2 = circleMediator2.getViewComponent();
-        // shapesContainer.addChild(circleView2);
-        // circleView2.x = circleView.width + circleView.width/2;
-        // circleView2.y = 100;
+        let circleMediator2:CircleViewMediator = facade.retrieveMediator("circle2");
+        let circleView2:CircleView = circleMediator2.getViewComponent();
+        shapesContainer.addChild(circleView2);
+        circleView2.x = circleView.x + circleView.width;
+        circleView2.y = circleView.y;
 
 
 
         let polygonMediator:SquareViewMediator = facade.retrieveMediator(PolygonViewMediator.NAME);
         shapesContainer.addChild(polygonMediator.getViewComponent());
-        polygonMediator.getViewComponent().x = circleView.x + circleView.width/2;
+        polygonMediator.getViewComponent().x = circleView2.x + circleView2.width/2;
 
         shapesContainer.x = Math.round(Main.WIDTH - shapesContainer.width)/2;
         shapesContainer.y = Math.round(Main.HEIGHT - shapesContainer.height)/2;
