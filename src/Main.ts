@@ -1,10 +1,10 @@
 import * as PIXI from 'pixi.js';
 import CircleView from './mvc/view/CircleView';
-import CircleView2 from './mvc/view/CircleView2';
 import CircleViewMediator from './mvc/view/CircleViewMediator';
 import PolygonViewMediator from './mvc/view/PolygonViewMediator';
 import SquareViewMediator from './mvc/view/SquareViewMediator';
 import MyFacade from "./MyFacade";
+import Utils from './Utils';
 
 export class Main {
     private _app:PIXI.Application;
@@ -17,6 +17,7 @@ export class Main {
         this.initPixi();
 
         setInterval(() => {
+            Utils.COLOR_TINT = Math.floor(Math.random()*16777215);
             facade.sendNotification(MyFacade.TEST_RECOLOR_NOTIFICATION_NAME);
         }, 1000);
 

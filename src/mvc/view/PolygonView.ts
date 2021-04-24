@@ -1,15 +1,14 @@
 import * as PIXI from 'pixi.js';
+import Utils from '../../Utils';
 
 export default class PolygonView extends PIXI.Graphics{
     constructor(){
         super();
-        this.polygonRecolor();
+        this.beginFill(0xffffff);
+        this.drawPolygon([0, 0, 80, 40, 80, 100, 0, 60]);
     }
 
     public polygonRecolor():void {
-        let randomcolor:number = Math.floor(Math.random()*16777215);
-        this.clear();
-        this.beginFill(randomcolor);
-        this.drawPolygon([0, 0, 80, 40, 80, 100, 0, 60]);
+        this.tint = Utils.randomColorProxy();
     }
 }
