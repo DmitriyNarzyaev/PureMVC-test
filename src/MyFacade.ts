@@ -1,4 +1,5 @@
 import { Facade } from "./com/koreez/puremvc/Facade";
+import RandomColorProxy from "./mvc/model/RandomColorProxy";
 import CircleViewMediator from "./mvc/view/CircleViewMediator";
 import PolygonViewMediator from "./mvc/view/PolygonViewMediator";
 import SquareViewMediator from "./mvc/view/SquareViewMediator";
@@ -29,5 +30,10 @@ export default class MyFacade extends Facade {
     public initializeController():void {
         super.initializeController();
         this.registerCommand(MyFacade.STARTUP_NOTIFICATION_NAME, startupCommand);
+    }
+
+    public initializeModel():void {
+        super.initializeModel();
+        this.registerProxy(new RandomColorProxy);
     }
 }

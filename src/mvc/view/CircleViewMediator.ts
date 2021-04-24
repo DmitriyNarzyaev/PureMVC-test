@@ -1,5 +1,6 @@
 import { Mediator } from "../../com/koreez/puremvc/Mediator";
 import MyFacade from "../../MyFacade";
+import RandomColorProxy from "../model/RandomColorProxy";
 import CircleView from "./CircleView";
 
 export default class CircleViewMediator extends Mediator<CircleView> {
@@ -12,7 +13,9 @@ export default class CircleViewMediator extends Mediator<CircleView> {
     public handleNotification(notificationName: string, ...args: any[]) {
         switch (notificationName) {
             case MyFacade.TEST_RECOLOR_NOTIFICATION_NAME:
-                this.getViewComponent().circleRecolor();
+                let randomColorProxy:RandomColorProxy = MyFacade.getInstance().retrieveProxy(RandomColorProxy.NAME);
+                let color:number = randomColorProxy.getData().color;
+                this.getViewComponent().circleRecolor(color);
                 break;
         }
     }

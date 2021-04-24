@@ -1,4 +1,5 @@
 import * as PIXI from 'pixi.js';
+import RandomColorProxy from './mvc/model/RandomColorProxy';
 import CircleView from './mvc/view/CircleView';
 import CircleViewMediator from './mvc/view/CircleViewMediator';
 import PolygonViewMediator from './mvc/view/PolygonViewMediator';
@@ -16,9 +17,9 @@ export class Main {
         facade.sendNotification(MyFacade.STARTUP_NOTIFICATION_NAME);        //test
         this.initPixi();
 
+        let randomColorProxy:RandomColorProxy = facade.retrieveProxy(RandomColorProxy.NAME);
         setInterval(() => {
-            Utils.COLOR_TINT = Math.floor(Math.random()*16777215);
-            facade.sendNotification(MyFacade.TEST_RECOLOR_NOTIFICATION_NAME);
+            randomColorProxy.refreshAndSendNotification();
         }, 1000);
 
         //TODO: создать основной контейнер (root)

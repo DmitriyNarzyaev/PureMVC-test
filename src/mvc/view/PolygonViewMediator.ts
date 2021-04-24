@@ -1,5 +1,6 @@
 import { Mediator } from "../../com/koreez/puremvc/Mediator";
 import MyFacade from "../../MyFacade";
+import RandomColorProxy from "../model/RandomColorProxy";
 import PolygonView from "./PolygonView";
 
 export default class PolygonViewMediator extends Mediator<PolygonView> {
@@ -13,7 +14,9 @@ export default class PolygonViewMediator extends Mediator<PolygonView> {
     public handleNotification(notificationName: string, ...args: any[]) {
         switch (notificationName) {
             case MyFacade.TEST_RECOLOR_NOTIFICATION_NAME:
-                this.getViewComponent().polygonRecolor();
+                let randomColorProxy:RandomColorProxy = MyFacade.getInstance().retrieveProxy(RandomColorProxy.NAME);
+                let color:number = randomColorProxy.getData().color;
+                this.getViewComponent().polygonRecolor(color);
                 break;
         }
     }
