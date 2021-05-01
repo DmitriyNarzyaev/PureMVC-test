@@ -1,7 +1,7 @@
 import { Mediator } from "../../com/koreez/puremvc/Mediator";
 import MyFacade from "../../MyFacade";
 import RandomColorProxy from "../model/RandomColorProxy";
-import CircleView from "./CircleView";
+import CircleView from "./CircleComponent";
 
 export default class CircleViewMediator extends Mediator<CircleView> {
 

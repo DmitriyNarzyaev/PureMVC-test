@@ -1,5 +1,5 @@
-import RandomColorProxy from "./mvc/model/RandomColorProxy";
-import MyFacade from "./MyFacade";
+import MyFacade from "../../MyFacade";
+import RandomColorProxy from "../model/RandomColorProxy";
 
 export function startupCommand(multitonKey: string, notificationName: string) {
     console.log("execute startup command");

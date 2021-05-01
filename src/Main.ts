@@ -1,9 +1,9 @@
 import * as PIXI from 'pixi.js';
 import RandomColorProxy from './mvc/model/RandomColorProxy';
-import CircleView from './mvc/view/CircleView';
-import CircleViewMediator from './mvc/view/CircleViewMediator';
-import PolygonViewMediator from './mvc/view/PolygonViewMediator';
-import SquareViewMediator from './mvc/view/SquareViewMediator';
+import CircleView from './mvc/view/CircleComponent';
+import CircleViewMediator from './mvc/view/CircleMediator';
+import PolygonViewMediator from './mvc/view/PolygonMediator';
+import SquareViewMediator from './mvc/view/SquareMediator';
 import MyFacade from "./MyFacade";
 
 export class Main {

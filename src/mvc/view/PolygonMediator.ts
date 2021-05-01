@@ -1,7 +1,7 @@
 import { Mediator } from "../../com/koreez/puremvc/Mediator";
 import MyFacade from "../../MyFacade";
 import RandomColorProxy from "../model/RandomColorProxy";
-import PolygonView from "./PolygonView";
+import PolygonView from "./PolygonComponent";
 
 export default class PolygonViewMediator extends Mediator<PolygonView> {
     public static NAME = "PolygonViewMediator";

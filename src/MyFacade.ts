@@ -1,10 +1,9 @@
 import { Facade } from "./com/koreez/puremvc/Facade";
+import { randomColorCommand, startupCommand } from "./mvc/controller/Commands";
 import RandomColorProxy from "./mvc/model/RandomColorProxy";
-import CircleViewMediator from "./mvc/view/CircleViewMediator";
-import PolygonViewMediator from "./mvc/view/PolygonViewMediator";
-import SquareViewMediator from "./mvc/view/SquareViewMediator";
-import { startupCommand } from "./StartupCommand";
-import { randomColorCommand } from "./StartupCommand";
+import CircleViewMediator from "./mvc/view/CircleMediator";
+import PolygonViewMediator from "./mvc/view/PolygonMediator";
+import SquareViewMediator from "./mvc/view/SquareMediator";
 
 export default class MyFacade extends Facade {
     public static STARTUP_NOTIFICATION_NAME:string = "StartupNotification";
