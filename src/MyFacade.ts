@@ -4,9 +4,11 @@ import CircleViewMediator from "./mvc/view/CircleViewMediator";
 import PolygonViewMediator from "./mvc/view/PolygonViewMediator";
 import SquareViewMediator from "./mvc/view/SquareViewMediator";
 import { startupCommand } from "./StartupCommand";
+import { randomColorCommand } from "./StartupCommand";
 
 export default class MyFacade extends Facade {
     public static STARTUP_NOTIFICATION_NAME:string = "StartupNotification";
+    public static GENERATE_RANDOM_COLOR_COMMAND_NAME:string = "GenerateRandomColorCommandName";
     public static TEST_RECOLOR_NOTIFICATION_NAME:string = "TestRecolorNotificaton";
     public static CIRCLE_1_MEDIATOR_NAME:string = "circle1";
     public static CIRCLE_2_MEDIATOR_NAME:string = "circle2";
@@ -30,6 +32,7 @@ export default class MyFacade extends Facade {
     public initializeController():void {
         super.initializeController();
         this.registerCommand(MyFacade.STARTUP_NOTIFICATION_NAME, startupCommand);
+        this.registerCommand(MyFacade.GENERATE_RANDOM_COLOR_COMMAND_NAME, randomColorCommand);
     }
 
     public initializeModel():void {

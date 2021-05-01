@@ -5,7 +5,6 @@ import CircleViewMediator from './mvc/view/CircleViewMediator';
 import PolygonViewMediator from './mvc/view/PolygonViewMediator';
 import SquareViewMediator from './mvc/view/SquareViewMediator';
 import MyFacade from "./MyFacade";
-import Utils from './Utils';
 
 export class Main {
     private _app:PIXI.Application;
@@ -17,9 +16,8 @@ export class Main {
         facade.sendNotification(MyFacade.STARTUP_NOTIFICATION_NAME);        //test
         this.initPixi();
 
-        let randomColorProxy:RandomColorProxy = facade.retrieveProxy(RandomColorProxy.NAME);
         setInterval(() => {
-            randomColorProxy.refreshAndSendNotification();
+            facade.sendNotification(MyFacade.GENERATE_RANDOM_COLOR_COMMAND_NAME);
         }, 1000);
 
         //TODO: создать основной контейнер (root)

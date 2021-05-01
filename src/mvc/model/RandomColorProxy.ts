@@ -17,5 +17,6 @@ export default class RandomColorProxy extends Proxy<RandomColorVO> {
     public refreshAndSendNotification():void {
         this.refresh();
         MyFacade.getInstance().sendNotification(MyFacade.TEST_RECOLOR_NOTIFICATION_NAME);
+        //MyFacade.getInstance().sendNotification(MyFacade.GENERATE_RANDOM_COLOR_COMMAND_NAME);
     }
 }
