@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
 
-export default class CircleView extends PIXI.Graphics{
+export default class CircleComponent extends PIXI.Graphics{
     constructor(){
         super();
         this.beginFill(0xffffff);

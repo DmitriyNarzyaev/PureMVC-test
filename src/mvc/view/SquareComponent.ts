@@ -1,7 +1,7 @@
 import * as PIXI from 'pixi.js';
 import Utils from '../../Utils';
 
-export default class SquareView extends PIXI.Graphics{
+export default class SquareComponent extends PIXI.Graphics{
     constructor(){
         super();
         this.recolor();

@@ -1,11 +1,13 @@
 import { Facade } from "./com/koreez/puremvc/Facade";
 import { randomColorCommand, startupCommand } from "./mvc/controller/Commands";
+import PixiProxy from "./mvc/model/PixiProxy";
 import RandomColorProxy from "./mvc/model/RandomColorProxy";
 import CircleViewMediator from "./mvc/view/CircleMediator";
 import PolygonViewMediator from "./mvc/view/PolygonMediator";
 import SquareViewMediator from "./mvc/view/SquareMediator";
 
 export default class MyFacade extends Facade {
+    public static PIXI_NOTIFICATION_NAME:string = "PixiNotification";
     public static STARTUP_NOTIFICATION_NAME:string = "StartupNotification";
     public static GENERATE_RANDOM_COLOR_COMMAND_NAME:string = "GenerateRandomColorCommandName";
     public static TEST_RECOLOR_NOTIFICATION_NAME:string = "TestRecolorNotificaton";
@@ -36,6 +38,7 @@ export default class MyFacade extends Facade {
 
     public initializeModel():void {
         super.initializeModel();
+        this.registerProxy(new PixiProxy);
         this.registerProxy(new RandomColorProxy);
     }
 }

@@ -1,12 +1,12 @@
 import { Mediator } from "../../com/koreez/puremvc/Mediator";
 import MyFacade from "../../MyFacade";
 import RandomColorProxy from "../model/RandomColorProxy";
-import CircleView from "./CircleComponent";
+import CircleComponent from "./CircleComponent";
 
-export default class CircleViewMediator extends Mediator<CircleView> {
+export default class CircleViewMediator extends Mediator<CircleComponent> {
 
     constructor(name:string) {
-        super(name, new CircleView);
+        super(name, new CircleComponent);
         this.subscribeNotification([MyFacade.TEST_RECOLOR_NOTIFICATION_NAME]);
     }
 

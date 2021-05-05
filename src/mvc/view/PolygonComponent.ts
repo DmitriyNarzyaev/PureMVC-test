@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
 
-export default class PolygonView extends PIXI.Graphics{
+export default class PolygonComponent extends PIXI.Graphics{
     constructor(){
         super();
         this.beginFill(0xffffff);
