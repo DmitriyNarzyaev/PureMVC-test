@@ -3,11 +3,11 @@ import MyFacade from "../../MyFacade";
 import RandomColorProxy from "../model/RandomColorProxy";
 import PolygonComponent from "./PolygonComponent";
 
-export default class PolygonViewMediator extends Mediator<PolygonComponent> {
-    public static NAME:string = "PolygonViewMediator";
+export default class PolygonMediator extends Mediator<PolygonComponent> {
+    public static NAME:string = "PolygonMediator";
 
     constructor() {
-        super(PolygonViewMediator.NAME, new PolygonComponent());
+        super(PolygonMediator.NAME, new PolygonComponent());
         this.subscribeNotification([MyFacade.TEST_RECOLOR_NOTIFICATION_NAME]);
     }
 

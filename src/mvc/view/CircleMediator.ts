@@ -3,7 +3,7 @@ import MyFacade from "../../MyFacade";
 import RandomColorProxy from "../model/RandomColorProxy";
 import CircleComponent from "./CircleComponent";
 
-export default class CircleViewMediator extends Mediator<CircleComponent> {
+export default class CircleMediator extends Mediator<CircleComponent> {
 
     constructor(name:string) {
         super(name, new CircleComponent);

@@ -1,11 +1,11 @@
 import { Mediator } from "../../com/koreez/puremvc/Mediator";
 import SquareComponent from "./SquareComponent";
 
-export default class SquareViewMediator extends Mediator<SquareComponent> {
-    public static NAME:string = "SquareViewMediator";
+export default class SquareMediator extends Mediator<SquareComponent> {
+    public static NAME:string = "SquareMediator";
 
     constructor() {
-        super(SquareViewMediator.NAME, new SquareComponent);
+        super(SquareMediator.NAME, new SquareComponent);
     }
 
     public handleNotification(notificationName: string, ...args: any[]) {
