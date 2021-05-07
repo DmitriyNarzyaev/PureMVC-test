@@ -2,6 +2,7 @@ import { Facade } from "./com/koreez/puremvc/Facade";
 import { randomColorCommand, startupCommand } from "./mvc/controller/Commands";
 import PixiProxy from "./mvc/model/PixiProxy";
 import RandomColorProxy from "./mvc/model/RandomColorProxy";
+import RootViewMediator from "./mvc/view/RootMediator";
 import CircleViewMediator from "./mvc/view/CircleMediator";
 import PolygonViewMediator from "./mvc/view/PolygonMediator";
 import SquareViewMediator from "./mvc/view/SquareMediator";
@@ -24,6 +25,7 @@ export default class MyFacade extends Facade {
 
     public initializeView():void {
         super.initializeView();
+        this.registerMediator(new RootViewMediator);
         this.registerMediator(new CircleViewMediator(MyFacade.CIRCLE_1_MEDIATOR_NAME));
         this.registerMediator(new CircleViewMediator(MyFacade.CIRCLE_2_MEDIATOR_NAME));
         this.registerMediator(new SquareViewMediator);
