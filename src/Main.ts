@@ -7,6 +7,7 @@ import RootComponent from './mvc/view/RootComponent';
 import RootMediator from './mvc/view/RootMediator';
 import SquareViewMediator from './mvc/view/SquareMediator';
 import MyFacade from "./MyFacade";
+import Utils from './Utils';
 
 export class Main {
     public static readonly WIDTH:number = 800;
@@ -51,5 +52,28 @@ export class Main {
         polygonMediator.getViewComponent().x = circleView2.x + circleView2.width/2;
         rootView.x = Math.round(Main.WIDTH - rootView.width)/2;
         rootView.y = Math.round(Main.HEIGHT - rootView.height)/2;
+
+        Utils.sendRequest("?action=get_random_number", this.onRandomNumberRequestSuccess, this.onRandomNumberRequestError);
+        Utils.sendRequest("?action=summ_numbers&first_number=10&second_number=16", this.onSummRequestSuccess, this.onSummRequestError);
+    }
+
+    private onRandomNumberRequestSuccess(json:any):void {
+        console.log("onRandomNumberRequestSuccess");
+        console.log("random value: " + json["result"]["random"]);
+    }
+
+    private onRandomNumberRequestError(info:any):void {
+        console.log("onRandomNumberRequestError");
+        console.log("info: " + info);
+    }
+
+    private onSummRequestSuccess(json:any):void {
+        console.log("onSummRequestSuccess");
+        console.log("summ: " + json["result"]["summ"]);
+    }
+
+    private onSummRequestError(info:any):void {
+        console.log("onSummRequestError");
+        console.log("info: " + info);
     }
 }
