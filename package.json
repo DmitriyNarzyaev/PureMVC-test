@@ -19,6 +19,8 @@
     "typescript": "^3.7.2"
   },
   "dependencies": {
+    "circular-dependency-plugin": "^5.2.2",
+    "pixi-text-input": "^1.0.6",
     "pixi.js": "^6.0.0"
   }
 }

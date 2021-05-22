@@ -12,6 +12,7 @@ export default class MyFacade extends Facade {
     public static STARTUP_NOTIFICATION_NAME:string = "StartupNotification";
     public static GENERATE_RANDOM_COLOR_COMMAND_NAME:string = "GenerateRandomColorCommandName";
     public static TEST_RECOLOR_NOTIFICATION_NAME:string = "TestRecolorNotificaton";
+    public static TEST_FUNCTION_NOTIFICATION_NAME:string = "TestFunctionNotificaton";
     public static CIRCLE_1_MEDIATOR_NAME:string = "circle1";
     public static CIRCLE_2_MEDIATOR_NAME:string = "circle2";
     private static instance:MyFacade;
