@@ -11,7 +11,6 @@ export default class MyFacade extends Facade {
     public static readonly PIXI_NOTIFICATION_NAME:string = "PixiNotification";
     public static readonly STARTUP_NOTIFICATION_NAME:string = "StartupNotification";
     public static readonly GENERATE_RANDOM_COLOR_COMMAND_NAME:string = "GenerateRandomColorCommandName";
-    public static readonly TEST_RECOLOR_NOTIFICATION_NAME:string = "TestRecolorNotificaton";
     public static readonly CIRCLE_1_MEDIATOR_NAME:string = "circle1";
     public static readonly CIRCLE_2_MEDIATOR_NAME:string = "circle2";
     public static readonly WIDTH:number = 800;

@@ -1,9 +1,9 @@
 import { Proxy } from "../../com/koreez/puremvc/Proxy";
-import MyFacade from "../../MyFacade";
 import RandomColorVO from "./RandomColorVO";
 
 export default class RandomColorProxy extends Proxy<RandomColorVO> {
     public static readonly NAME:string = "randomColorProxy";
+    public static readonly TEST_RECOLOR_NOTIFICATION_NAME:string = "TestRecolorNotification";
 
     constructor() {
         super(RandomColorProxy.NAME, new RandomColorVO());
@@ -16,6 +16,6 @@ export default class RandomColorProxy extends Proxy<RandomColorVO> {
 
     public refreshAndSendNotification():void {
         this.refresh();
-        MyFacade.getInstance().sendNotification(MyFacade.TEST_RECOLOR_NOTIFICATION_NAME);
+        this.facade.sendNotification(RandomColorProxy.TEST_RECOLOR_NOTIFICATION_NAME);
     }
 }
