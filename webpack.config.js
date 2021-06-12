@@ -1,5 +1,6 @@
 const path = require('path');
 const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
+const CircularDependencyPlugin = require("circular-dependency-plugin");
 
 module.exports = {
   entry: './src/Main.ts',
@@ -25,6 +26,11 @@ module.exports = {
       server: {
         baseDir: ['./']
       }
+    }),
+    new CircularDependencyPlugin({
+      entry: "src",
+      exclude: /a\.js|node_modules/,
+      cwd: process.cwd(),
     })
   ],
   resolve: {
