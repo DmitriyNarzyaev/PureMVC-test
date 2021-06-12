@@ -8,10 +8,11 @@ import { Model } from "./Model";
 import { Proxy } from "./Proxy";
 import { PureMVC } from "./PureMVC";
 import { View } from "./View";
+import { IFacade } from "./IFacade";
 
 const MULTITON_MSG: string = "Facade instance for this Multiton key already constructed!";
 
-export class Facade {
+export class Facade implements IFacade {
     private static readonly _consoleArgs: string[] = [
         "",
         `background: ${"#757130"}`,
