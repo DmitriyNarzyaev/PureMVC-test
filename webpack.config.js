@@ -5,6 +5,7 @@ const CircularDependencyPlugin = require("circular-dependency-plugin");
 module.exports = {
   entry: './src/Main.ts',
   mode: 'development',          //fixme
+  devtool: "inline-source-map", //fixme: use «(none)» for release version
   module : {
     rules:[
       {
