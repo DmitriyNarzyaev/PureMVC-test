@@ -12,8 +12,6 @@ import MyFacade from "./MyFacade";
 import Utils from './Utils';
 
 export class Main {
-    public static readonly WIDTH:number = 800;
-    public static readonly HEIGHT:number = 600;
     private _rootView:RootComponent;
     private _firstTextField:any;
     private _secondTextField:any;
@@ -52,8 +50,8 @@ export class Main {
         let polygonMediator:PolygonViewMediator = facade.retrieveMediator(PolygonViewMediator.NAME);
         this._rootView.addChild(polygonMediator.getViewComponent());
         polygonMediator.getViewComponent().x = circleView2.x + circleView2.width/2;
-        this._rootView.x = Math.round(Main.WIDTH - this._rootView.width)/2;
-        this._rootView.y = Math.round(Main.HEIGHT - this._rootView.height)/2;
+        this._rootView.x = Math.round(MyFacade.WIDTH - this._rootView.width)/2;
+        this._rootView.y = Math.round(MyFacade.HEIGHT - this._rootView.height)/2;
 
         this._firstTextField = this.textInputWindow(0, 110, 'Enter first number...');
         this._secondTextField = this.textInputWindow(0, 170, 'Enter second number...');

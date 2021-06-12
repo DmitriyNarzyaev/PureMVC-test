@@ -15,6 +15,8 @@ export default class MyFacade extends Facade {
     public static TEST_FUNCTION_NOTIFICATION_NAME:string = "TestFunctionNotificaton";
     public static CIRCLE_1_MEDIATOR_NAME:string = "circle1";
     public static CIRCLE_2_MEDIATOR_NAME:string = "circle2";
+    public static readonly WIDTH:number = 800;
+    public static readonly HEIGHT:number = 600;
     private static instance:MyFacade;
 
     public static getInstance():MyFacade {
@@ -41,7 +43,7 @@ export default class MyFacade extends Facade {
 
     public initializeModel():void {
         super.initializeModel();
-        this.registerProxy(new PixiProxy);
+        this.registerProxy(new PixiProxy(MyFacade.WIDTH, MyFacade.HEIGHT));
         this.registerProxy(new RandomColorProxy);
     }
 }
