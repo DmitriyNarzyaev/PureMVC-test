@@ -8,7 +8,6 @@ import PolygonViewMediator from "./mvc/view/PolygonMediator";
 import SquareViewMediator from "./mvc/view/SquareMediator";
 
 export default class MyFacade extends Facade {
-    public static readonly PIXI_NOTIFICATION_NAME:string = "PixiNotification";
     public static readonly STARTUP_NOTIFICATION_NAME:string = "StartupNotification";
     public static readonly GENERATE_RANDOM_COLOR_COMMAND_NAME:string = "GenerateRandomColorCommandName";
     public static readonly CIRCLE_1_MEDIATOR_NAME:string = "circle1";

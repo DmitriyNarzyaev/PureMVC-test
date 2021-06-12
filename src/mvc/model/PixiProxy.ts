@@ -1,7 +1,6 @@
 import { Proxy } from "../../com/koreez/puremvc/Proxy";
 import PixiProxyVO from "./PixiProxyVO";
 import * as PIXI from 'pixi.js';
-import MyFacade from "../../MyFacade";
 
 export default class PixiProxy extends Proxy<PixiProxyVO> {
     public static readonly NAME:string = "PixiProxy";
@@ -23,9 +22,5 @@ export default class PixiProxy extends Proxy<PixiProxyVO> {
             resolution: window.devicePixelRatio || 1,
         });
         document.body.appendChild(this.getData().app.view);
-    }
-
-    public sendNotification():void {
-        MyFacade.getInstance().sendNotification(MyFacade.PIXI_NOTIFICATION_NAME);
     }
 }
