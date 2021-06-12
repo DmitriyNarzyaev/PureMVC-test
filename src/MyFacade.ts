@@ -1,5 +1,5 @@
 import { Facade } from "./com/koreez/puremvc/Facade";
-import {initCommands, randomColorCommand, startupCommand} from "./mvc/controller/Commands";
+import {randomColorCommand, startupCommand} from "./mvc/controller/Commands";
 import PixiProxy from "./mvc/model/PixiProxy";
 import RandomColorProxy from "./mvc/model/RandomColorProxy";
 import RootViewMediator from "./mvc/view/RootMediator";
@@ -34,7 +34,6 @@ export default class MyFacade extends Facade {
 
     public initializeController():void {
         super.initializeController();
-        initCommands(this);
         this.registerCommand(MyFacade.STARTUP_NOTIFICATION_NAME, startupCommand);
         this.registerCommand(MyFacade.GENERATE_RANDOM_COLOR_COMMAND_NAME, randomColorCommand);
     }
